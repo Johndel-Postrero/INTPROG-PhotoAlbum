@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="page-view">
+
+
+    <section class="home-hero">
+        <h1>My Photo Album</h1>
+        <p class="subtitle">Anime Movie Character &amp; Scene Gallery</p>
+        <p class="instruction">Select an anime below to explore its gallery of 20 curated scenes</p>
+    </section>
+
+
+    <section class="album-cards-container">
+        <div class="album-cards-grid">
+
+
+            <a asp-controller="Album" asp-action="GraveOfTheFireflies" class="album-card card-grave">
+                <div class="album-card-banner">
+                    <div class="banner-bg"></div>
+                    <div class="banner-overlay"></div>
+                    <img class="banner-img" src="~/images/grave_of_the_fireflies/coverGotf.jpg"
+                        alt="Grave of the Fireflies" />
+                </div>
+                <div class="album-card-body">
+                    <h3>Grave of the Fireflies</h3>
+                    <p>A heartbreaking tale of two siblings surviving the firebombing of Japan during World War II.</p>
+                    <span class="album-card-btn">
+                        View Gallery <span class="arrow">→</span>
+                    </span>
+                </div>
+            </a>
+
+
+            <a asp-controller="Album" asp-action="YourName" class="album-card card-yourname">
+                <div class="album-card-banner">
+                    <div class="banner-bg"></div>
+                    <div class="banner-overlay"></div>
+                    <img class="banner-img" src="~/images/your_name/coverYN.jpg" alt="Your Name" />
+                </div>
+                <div class="album-card-body">
+                    <h3>Your Name</h3>
+                    <p>Two strangers mysteriously swap bodies, forging a connection that transcends time and space.</p>
+                    <span class="album-card-btn">
+                        View Gallery <span class="arrow">→</span>
+                    </span>
+                </div>
+            </a>
+
+
+            <a asp-controller="Album" asp-action="ASilentVoice" class="album-card card-silent">
+                <div class="album-card-banner">
+                    <div class="banner-bg"></div>
+                    <div class="banner-overlay"></div>
+                    <img class="banner-img" src="~/images/a_silent_voice/coverSilentVoice.jpg" alt="A Silent Voice" />
+                </div>
+                <div class="album-card-body">
+                    <h3>A Silent Voice</h3>
+                    <p>A former bully seeks to make amends with the deaf girl he tormented in elementary school.</p>
+                    <span class="album-card-btn">
+                        View Gallery <span class="arrow">→</span>
+                    </span>
+                </div>
+            </a>
+
+
+            <a asp-controller="Album" asp-action="WeatheringWithYou" class="album-card card-weathering">
+                <div class="album-card-banner">
+                    <div class="banner-bg"></div>
+                    <div class="banner-overlay"></div>
+                    <img class="banner-img" src="~/images/weathering_with_you/coverWWY.jpg" alt="Weathering With You" />
+                </div>
+                <div class="album-card-body">
+                    <h3>Weathering With You</h3>
+                    <p>A runaway boy meets a girl who can control the weather in a rain-soaked Tokyo.</p>
+                    <span class="album-card-btn">
+                        View Gallery <span class="arrow">→</span>
+                    </span>
+                </div>
+            </a>
+
+
+            <a asp-controller="Album" asp-action="YourLieInApril" class="album-card card-yourlie">
+                <div class="album-card-banner">
+                    <div class="banner-bg"></div>
+                    <div class="banner-overlay"></div>
+                    <img class="banner-img" src="~/images/your_lie_in_april/coverYLIA.jpg" alt="Your Lie in April" />
+                </div>
+                <div class="album-card-body">
+                    <h3>Your Lie in April</h3>
+                    <p>A piano prodigy who lost his ability to hear music meets a free-spirited violinist.</p>
+                    <span class="album-card-btn">
+                        View Gallery <span class="arrow">→</span>
+                    </span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>Copyright ©2026: Designed by POSTRERO</p>
+    </footer>
+
+</div>

@@ -1,0 +1,16 @@
+﻿@model List<PhotoAlbum_Postrero.Models.Photo>
+@{
+    ViewData["Title"] = "A Silent Voice";
+    ViewData["AlbumTitle"] = "A Silent Voice";
+    ViewData["AlbumEmoji"] = "🤟";
+    ViewData["AlbumCssClass"] = "album-silent";
+    ViewData["AlbumFolder"] = "a_silent_voice";
+    ViewData["AlbumDesc"] = "Naoko Yamada's powerful 2016 film about redemption and connection. " +
+    "Former bully Shoya Ishida seeks out Shoko Nishimiya, a deaf girl he tormented " +
+    "in elementary school, to make amends. A profound exploration of disability, " +
+    "bullying, forgiveness, and the courage to reconnect.";
+}
+
+@{
+    await Html.RenderPartialAsync("_AlbumPage", Model);
+}

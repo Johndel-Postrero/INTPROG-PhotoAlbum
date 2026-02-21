@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PhotoAlbum_Postrero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="~/ICON.ico" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+
+
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <span class="brand-icon">📸</span>
+                My Photo Album
+            </a>
+
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+
+
+            <ul class="nav-links" id="navLinks">
+                <li>
+                    <a asp-controller="Home" asp-action="Index"
+                        class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Album" asp-action="GraveOfTheFireflies"
+                        class="@(ViewContext.RouteData.Values["action"]?.ToString() == "GraveOfTheFireflies" ? "active" : "")">
+                        Grave of the Fireflies
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Album" asp-action="YourName"
+                        class="@(ViewContext.RouteData.Values["action"]?.ToString() == "YourName" ? "active" : "")">
+                        Your Name
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Album" asp-action="ASilentVoice"
+                        class="@(ViewContext.RouteData.Values["action"]?.ToString() == "ASilentVoice" ? "active" : "")">
+                        A Silent Voice
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Album" asp-action="WeatheringWithYou"
+                        class="@(ViewContext.RouteData.Values["action"]?.ToString() == "WeatheringWithYou" ? "active" : "")">
+                        Weathering With You
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Album" asp-action="YourLieInApril"
+                        class="@(ViewContext.RouteData.Values["action"]?.ToString() == "YourLieInApril" ? "active" : "")">
+                        Your Lie in April
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="render-body">
+        @RenderBody()
+    </main>
+
+
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <div class="lightbox-img" id="lightboxImg"></div>
+            <p class="lightbox-caption" id="lightboxCaption"></p>
+        </div>
+    </div>
+
+
+    <button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        ↑
+    </button>
+
+
+    <script>
+
+        document.getElementById('navToggle').addEventListener('click', function () {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+
+        document.querySelectorAll('.nav-links a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+
+        function openLightbox(imgSrc, caption) {
+            var overlay = document.getElementById('lightbox');
+            var imgEl = document.getElementById('lightboxImg');
+            var capEl = document.getElementById('lightboxCaption');
+
+            imgEl.innerHTML = '<img src="' + imgSrc + '" style="max-width:100%;max-height:70vh;border-radius:12px;" />';
+            capEl.textContent = caption;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+
+        window.addEventListener('scroll', function () {
+            var btn = document.getElementById('scrollTopBtn');
+            btn.classList.toggle('visible', window.scrollY > 400);
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>

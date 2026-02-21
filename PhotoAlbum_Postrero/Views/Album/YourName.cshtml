@@ -1,0 +1,16 @@
+﻿@model List<PhotoAlbum_Postrero.Models.Photo>
+@{
+    ViewData["Title"] = "Your Name";
+    ViewData["AlbumTitle"] = "Your Name";
+    ViewData["AlbumEmoji"] = "☄️";
+    ViewData["AlbumCssClass"] = "album-yourname";
+    ViewData["AlbumFolder"] = "your_name";
+    ViewData["AlbumDesc"] = "Makoto Shinkai's 2016 masterpiece that became a worldwide phenomenon. " +
+    "Two strangers — Taki from Tokyo and Mitsuha from rural Itomori — mysteriously " +
+    "begin swapping bodies. As they forge a deep connection across time and space, " +
+    "they must race to prevent a catastrophic event.";
+}
+
+@{
+    await Html.RenderPartialAsync("_AlbumPage", Model);
+}

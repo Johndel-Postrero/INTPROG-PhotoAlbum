@@ -1,0 +1,16 @@
+﻿@model List<PhotoAlbum_Postrero.Models.Photo>
+@{
+    ViewData["Title"] = "Your Lie in April";
+    ViewData["AlbumTitle"] = "Your Lie in April";
+    ViewData["AlbumEmoji"] = "🎵";
+    ViewData["AlbumCssClass"] = "album-yourlie";
+    ViewData["AlbumFolder"] = "your_lie_in_april";
+    ViewData["AlbumDesc"] = "A deeply emotional 2014 anime series about music and love. Piano prodigy " +
+    "Kousei Arima lost his ability to hear music after his mother's death. When he " +
+    "meets the free-spirited violinist Kaori Miyazono, she helps him rediscover his " +
+    "passion and the beauty of life through music.";
+}
+
+@{
+    await Html.RenderPartialAsync("_AlbumPage", Model);
+}

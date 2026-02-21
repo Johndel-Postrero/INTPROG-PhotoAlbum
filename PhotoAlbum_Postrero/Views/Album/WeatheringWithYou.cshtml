@@ -1,0 +1,16 @@
+﻿@model List<PhotoAlbum_Postrero.Models.Photo>
+@{
+    ViewData["Title"] = "Weathering With You";
+    ViewData["AlbumTitle"] = "Weathering With You";
+    ViewData["AlbumEmoji"] = "🌧️";
+    ViewData["AlbumCssClass"] = "album-weathering";
+    ViewData["AlbumFolder"] = "weathering_with_you";
+    ViewData["AlbumDesc"] = "Makoto Shinkai's 2019 follow-up to Your Name. Runaway Hodaka Morishima arrives " +
+    "in a rain-drenched Tokyo and meets Hina Amano, a girl with the mysterious power " +
+    "to clear the sky. As their bond deepens, they must choose between saving the " +
+    "city or saving each other.";
+}
+
+@{
+    await Html.RenderPartialAsync("_AlbumPage", Model);
+}

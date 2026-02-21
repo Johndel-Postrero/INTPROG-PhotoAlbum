@@ -1,0 +1,50 @@
+﻿@using PhotoAlbum_Postrero.Models
+@model List<Photo>
+
+
+@{
+    var albumTitle = ViewData["AlbumTitle"]?.ToString() ?? "";
+    var albumEmoji = ViewData["AlbumEmoji"]?.ToString() ?? "📷";
+    var albumDesc = ViewData["AlbumDesc"]?.ToString() ?? "";
+    var albumCssClass = ViewData["AlbumCssClass"]?.ToString() ?? "";
+    var albumFolder = ViewData["AlbumFolder"]?.ToString() ?? "";
+}
+
+<div class="page-view @albumCssClass">
+    <div class="album-page">
+
+
+        <div class="album-header">
+            <a asp-controller="Home" asp-action="Index" class="back-link">← Back to Home</a>
+            <h1>@albumEmoji @albumTitle</h1>
+            <p class="album-desc">@albumDesc</p>
+        </div>
+
+
+        <div class="photo-grid">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                var photo = Model[i];
+                var imgNum = i + 1;
+                <div class="photo-card"
+                    onclick="openLightbox('@Url.Content(photo.ImagePath)', '@Html.Raw(photo.Description.Replace("'", "\\'"))')">
+                    <div class="photo-card-image-wrapper">
+                        <img class="photo-card-image" src="@Url.Content(photo.ImagePath)" alt="@photo.Description"
+                            loading="lazy" />
+                        <span class="img-number">@imgNum/20</span>
+                    </div>
+                    <div class="photo-card-caption">
+                        <span class="movie-tag">@photo.MovieTitle</span>
+                        <p>@photo.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+    <footer class="site-footer">
+        <p>Copyright ©2026: Designed by POSTRERO</p>
+    </footer>
+
+</div>

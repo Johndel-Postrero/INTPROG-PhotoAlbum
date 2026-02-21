@@ -1,0 +1,16 @@
+﻿@model List<PhotoAlbum_Postrero.Models.Photo>
+@{
+    ViewData["Title"] = "Grave of the Fireflies";
+    ViewData["AlbumTitle"] = "Grave of the Fireflies";
+    ViewData["AlbumEmoji"] = "🔥";
+    ViewData["AlbumCssClass"] = "album-grave";
+    ViewData["AlbumFolder"] = "grave_of_the_fireflies";
+    ViewData["AlbumDesc"] = "A devastating 1988 Studio Ghibli masterpiece directed by Isao Takahata. " +
+    "Set in the final months of World War II, it follows siblings Seita and Setsuko " +
+    "as they struggle to survive the firebombing of Kobe, Japan. A haunting meditation " +
+    "on war, innocence, and the bonds of family.";
+}
+
+@{
+    await Html.RenderPartialAsync("_AlbumPage", Model);
+}
